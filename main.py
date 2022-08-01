@@ -1,16 +1,32 @@
-# This is a sample Python script.
+import asyncio
+from time import sleep
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+async def A():
+    while True:
+        print("AAAAAAAA")
+        sleep(1)
+        await C()
+
+async def B():
+    while True:
+        print("BBBBBBB")
+        sleep(1)
+        await A()
+
+async def C():
+    while True:
+        print("CCCCCCC")
+        sleep(1)
+        await B()
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+async def main():
+    tasks = [
+        A(),
+        B(),
+        C()
+    ]
+    await asyncio.gather(*tasks)
 
+asyncio.run(main())
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
