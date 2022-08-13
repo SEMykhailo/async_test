@@ -1,4 +1,7 @@
 import asyncio
+import time
+
+from aiogram import Dispatcher
 
 
 async def f(name):
@@ -11,3 +14,8 @@ async def m(): await asyncio.gather(f('a'), f('b'), f('c'))
 
 
 asyncio.run(m())
+
+dp = Dispatcher
+
+time.sleep()
+async.sleep
