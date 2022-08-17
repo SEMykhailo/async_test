@@ -36,12 +36,12 @@ def load_config(path: str = None):
             token=env.str("BOT_TOKEN"),
             admin_ids=List(map(int, env.list("ADMINS"))),
             use_redis=env.bool("USE_REDIS")
-        ),
-        db = dbConfig(
-            host=env.str("DB_HOST"),
-            password=env.str("DB_PASS"),
-            user=env.str("DB_NAME"),
-            database=env.str("DB_NAME")
-        ),
-        misc=Miscellaneous()
+        )
+        # db = dbConfig(
+        #     host=env.str("DB_HOST"),
+        #     password=env.str("DB_PASS"),
+        #     user=env.str("DB_NAME"),
+        #     database=env.str("DB_NAME")
+        # ),
+        # misc=Miscellaneous()
     )
