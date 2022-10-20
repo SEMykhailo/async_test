@@ -14,7 +14,7 @@ class TgBot:
 class DbConfig:
     host: str
     password: str
-    ussr: str
+    user: str
     database: str
 
 @dataclass
@@ -34,14 +34,14 @@ def load_config(path: str = None):
     return Config(
         tg_bot = TgBot(
             token=env.str("BOT_TOKEN"),
-            admin_ids=List(map(int, env.list("ADMINS"))),
+            admin_ids=list(map(int, env.list("ADMINS"))),
             use_redis=env.bool("USE_REDIS")
-        )
-        # db = dbConfig(
-        #     host=env.str("DB_HOST"),
-        #     password=env.str("DB_PASS"),
-        #     user=env.str("DB_NAME"),
-        #     database=env.str("DB_NAME")
-        # ),
-        # misc=Miscellaneous()
+        ),
+            db = DbConfig(
+            host=env.str("DB_HOST"),
+            password=env.str("DB_PASS"),
+            user=env.str("DB_NAME"),
+            database=env.str("DB_NAME")
+        ),
+        misc=Miscellaneous()
     )
