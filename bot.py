@@ -7,7 +7,7 @@ from aiogram.contrib.fsm_storage.redis import RedisStorage2
 
 from tg_bot.config import load_config
 
-from tg_bot.handlers.echo import register_echo
+from tg_bot.handlers.start import register_start
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +21,7 @@ def register_all_filters(dp):
 
 
 def register_all_handlers(dp):
-    register_echo(dp)
+    register_start(dp)
 
 
 async def main():
