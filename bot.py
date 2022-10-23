@@ -7,7 +7,7 @@ from aiogram.contrib.fsm_storage.redis import RedisStorage2
 
 from tg_bot.config import load_config
 
-from tg_bot.handlers.start import register_start
+from tg_bot.handlers.bot_test import register_start
 
 logger = logging.getLogger(__name__)
 
