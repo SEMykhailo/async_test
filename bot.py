@@ -19,7 +19,7 @@ def register_all_middlewares(dp):
 
 def register_all_filters(dp):
     register_filters(dp)
-
+    #pass
 
 def register_all_handlers(dp):
     register_start(dp)

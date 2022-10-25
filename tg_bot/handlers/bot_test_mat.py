@@ -22,4 +22,4 @@ async def bot_filter_pytin(message: types.Message):
 def register_start(dp: Dispatcher):
     dp.register_message_handler(bot_start, CommandStart())
     dp.register_message_handler(bot_filter_pytin, Text(contains=FORBIDDEN_PHRASE_1, ignore_case=True))
-    dp.register_message_handler(bot_filter_mat, MatFilter())
+    dp.register_message_handler(bot_filter_mat, mat_filter=True)
