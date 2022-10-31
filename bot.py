@@ -9,6 +9,7 @@ from tg_bot.config import load_config
 #from tg_bot.filters.mat_filter import register_filters
 
 from tg_bot.handlers.bot_test import register_start
+from tg_bot.handlers.users.testing import register_testing
 
 logger = logging.getLogger(__name__)
 
@@ -24,6 +25,7 @@ def register_all_filters(dp):
 
 def register_all_handlers(dp):
     register_start(dp)
+    register_testing(dp)
 
 
 async def main():
