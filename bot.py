@@ -6,9 +6,9 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.contrib.fsm_storage.redis import RedisStorage2
 
 from tg_bot.config import load_config
-from tg_bot.filters.mat_filter import register_filters
+#from tg_bot.filters.mat_filter import register_filters
 
-from tg_bot.handlers.bot_test_mat import register_start
+from tg_bot.handlers.bot_test import register_start
 
 logger = logging.getLogger(__name__)
 
@@ -18,8 +18,9 @@ def register_all_middlewares(dp):
 
 
 def register_all_filters(dp):
-    register_filters(dp)
-    #pass
+    #register_filters(dp)
+    pass
+
 
 def register_all_handlers(dp):
     register_start(dp)
