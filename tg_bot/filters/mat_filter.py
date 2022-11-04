@@ -17,4 +17,4 @@ class MatFilter(Filter):
         return any(map(lambda x: x.lower() in self.mat_filter, message.text.split()))
 
 # def register_filters(dp: Dispatcher):
-#     dp.filters_factory.bind(MatFilter)_factory.bind(MatFilter)
+#     dp.filters_factory.bind(MatFilter)
