@@ -27,9 +27,13 @@ async def bot_start(message: types.Message):
 
     #await state.reset_state()
 
+async def  give_id_stickers(message: types.Message):
+    await message.answer(message.sticker.file_id)
+
 
 def register_start(dp: Dispatcher):
     dp.register_message_handler(bot_start, Command('start'), state='*')
     dp.register_message_handler(bot_info, Command('info'))
+    dp.register_message_handler(give_id_stickers, content_types=['sticker'])
     dp.register_message_handler(bot_filter_pytin, Text(contains=FORBIDDEN_PHRASE_1, ignore_case=True))
     dp.register_message_handler(bot_filter_mat, MatFilter())
