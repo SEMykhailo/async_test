@@ -27,6 +27,7 @@ async def bot_start(message: types.Message):
 
     #await state.reset_state()
 
+#commit
 async def  give_id_stickers(message: types.Message):
     await message.answer(message.sticker.file_id)
 
