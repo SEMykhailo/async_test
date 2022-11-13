@@ -30,6 +30,7 @@ async def bot_start(message: types.Message):
 async def  give_id_stickers(message: types.Message):
     await message.answer(message.sticker.file_id)
 
+#comment
 def register_start(dp: Dispatcher):
     dp.register_message_handler(bot_start, Command('start'), state='*')
     dp.register_message_handler(bot_info, Command('info'))
