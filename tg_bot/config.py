@@ -37,7 +37,7 @@ def load_config(path: str = None):
             admin_ids=list(map(int, env.list("ADMINS"))),
             use_redis=env.bool("USE_REDIS")
         ),
-            db = DbConfig(
+        db = DbConfig(
             host=env.str("DB_HOST"),
             password=env.str("DB_PASS"),
             user=env.str("DB_NAME"),

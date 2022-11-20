@@ -5,6 +5,7 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Text, Command, state
 
 from tg_bot.filters.mat_filter import MatFilter
+from tg_bot.keyboards.kb_start import kb
 
 FORBIDDEN_PHRASE_1 = [
     'Путін',
@@ -22,12 +23,15 @@ async def bot_filter_mat(message: types.Message):
 async def bot_filter_pytin(message: types.Message):
     await message.reply(f'Підтримую')
 
-async def bot_start(message: types.Message):
+async def bot_about(message: types.Message):
     await message.answer(f'Для того, щоб дізнатися свій Telegram id введіть команду /info\n'
-                         f'Також цей бот може провести маленьке тестування, для цього введіть команду /test\n'
-                         f'Для того, щоб получити id стікера - просто відправте його в чат\n'
-                         f'Якщо хочете получити випадковий стікер з котиком введіть команду /give\n'
-                         f'Крім цього, його можна використовувати, як мат фільтр в чатах, але кількість матів дуже обмежена і це реалізовано просто для тестування фільтрів бота')
+                        f'Також цей бот може провести маленьке тестування, для цього введіть команду /test\n'
+                        f'Для того, щоб получити id стікера - просто відправте його в чат\n'
+                        f'Якщо хочете получити випадковий стікер з котиком введіть команду /give\n'
+                        f'Крім цього, його можна використовувати, як мат фільтр в чатах, але кількість матів дуже обмежена і це реалізовано просто для тестування фільтрів бота')
+
+async def bot_start(message: types.Message):
+    await message.bot.send_message(chat_id=message.chat.id, text='Привіт', reply_markup=kb)
 
     #await state.reset_state()
 
@@ -47,6 +51,7 @@ def register_start(dp: Dispatcher):
     dp.register_message_handler(bot_start, Command('start'), state='*')
     dp.register_message_handler(bot_info, Command('info'))
     dp.register_message_handler(give_cat_sticker, Command("give"))
+    dp.register_message_handler(bot_about, Command('about'))
     dp.register_message_handler(give_id_stickers, content_types=['sticker'])
     dp.register_message_handler(bot_filter_pytin, Text(contains=FORBIDDEN_PHRASE_1, ignore_case=True))
     dp.register_message_handler(bot_filter_mat, MatFilter())
